@@ -34,6 +34,14 @@ function alternarIdeia(id) {
 })
   )
 }
+
+function removerIdeia(id) {
+  setIdeias(
+      ideias.filter((ideia) => {
+        return ideia.id !== id
+      })
+  )
+}
   return(
     <div>
     <h1>Painel de Ideias</h1>
@@ -47,6 +55,7 @@ function alternarIdeia(id) {
       <div key={ideia.id}>
   <p className={ideia.feita ? "riscado" : "normal"}>{ideia.texto}</p>
   <input checked={ideia.feita} onChange={() => alternarIdeia(ideia.id)} type="checkbox" />
+  <button onClick={() => removerIdeia(ideia.id)}>X</button>
 </div>
   ))}
     </div>
