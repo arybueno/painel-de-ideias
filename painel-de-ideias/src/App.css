@@ -5,3 +5,64 @@
 .normal {
   text-decoration: none;
 }
+
+body {
+  background-image: url("/download (1).jfif");
+  /*tela inteira sem repetir*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+
+}
+
+h1 {
+  text-align: center;
+  color: rgb(16, 21, 90);
+  background-color: white;
+  font-size: 50px;
+ width: fit-content;
+ margin: 30px auto 0;
+ border-radius: 12px;
+}
+
+.painel {
+  width: 400px;
+  margin: 80px auto 0;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+   background-color: white;
+  padding: 10px 12px;
+  margin-top: 12px;
+  border-radius: 10px;
+}
+
+.item p {
+  flex: 1;
+  margin: 0;
+}
+
+.formulario {
+  display: flex;
+  gap: 8px;
+}
+
+.formulario input {
+  flex: 1;
+   padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+}
+
+.formulario button {
+  padding: 8px 14px;
+  border-radius: 6px;
+}
