@@ -11,47 +11,45 @@ export default function App() {
 
   function aoAdicionar(event) {
     event.preventDefault()
-    console.log(novaIdeia)
-    if (novaIdeia.trim() == "") {
+    if (novaIdeia.trim() === "") {
       setErro("Digite sua ideia antes de adicionar.")
       return
     } else {
-      setIdeias([
-        ...ideias,
-        {
-          id: Date.now(),
-          texto: novaIdeia.trim(),
-          feita: false
-        }
-      ]
-      )
+      setIdeias((atuais) => [
+  ...atuais,
+  {
+    id: Date.now(),
+    texto: novaIdeia.trim(),
+    feita: false
+  }
+])
       setErro("")
     }
     setNovaIdeia("")
   }
 
   function alternarIdeia(id) {
-    setIdeias(
-      ideias.map((ideia) => {
-        if (ideia.id === id) {
-          return {
-            ...ideia,
-            feita: !ideia.feita
-          }
-        } else {
-          return ideia
+  setIdeias((atuais) =>
+    atuais.map((ideia) => {
+      if (ideia.id === id) {
+        return {
+          ...ideia,
+          feita: !ideia.feita
         }
-      })
-    )
-  }
+      } else {
+        return ideia
+      }
+    })
+  )
+}
 
   function removerIdeia(id) {
-    setIdeias(
-      ideias.filter((ideia) => {
-        return ideia.id !== id
-      })
-    )
-  }
+  setIdeias((atuais) =>
+    atuais.filter((ideia) => {
+      return ideia.id !== id
+    })
+  )
+}
   return (
     <div>
       <h1>Painel de Ideias</h1>
