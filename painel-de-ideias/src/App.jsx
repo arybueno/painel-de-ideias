@@ -7,10 +7,15 @@ export default function App(){
   const concluidas = ideias.filter((ideia) =>{
     return ideia.feita
   }).length
+  const [erro, setErro] = useState("")
 
   function aoAdicionar(event) {
    event.preventDefault()
    console.log(novaIdeia)
+   if(novaIdeia.trim()==""){
+    setErro("Digite sua ideia antes de adicionar.")
+    return
+   }else{
    setIdeias([
     ...ideias,
     {
@@ -20,6 +25,8 @@ export default function App(){
     }
    ]
   )
+setErro("")
+}
   setNovaIdeia("")
 }
 
@@ -50,9 +57,11 @@ function removerIdeia(id) {
     <h1>Painel de Ideias</h1>
 
     <form  onSubmit={aoAdicionar}>
-      <input type="text" value={novaIdeia} onChange={event => setNovaIdeia(event.target.value)} />
+      <input type="text" value={novaIdeia} onChange={event => {setNovaIdeia(event.target.value) 
+        setErro("")}} />
       <button>Adicionar</button>
     </form>
+    {erro && <p>{erro}</p>}
 
     {ideias.map((ideia) => (
       <div key={ideia.id}>
