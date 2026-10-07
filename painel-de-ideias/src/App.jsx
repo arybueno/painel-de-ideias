@@ -4,6 +4,9 @@ import "./App.css"
 export default function App(){
   const [ideias, setIdeias] = useState([]);        
   const [novaIdeia, setNovaIdeia] = useState("");
+  const concluidas = ideias.filter((ideia) =>{
+    return ideia.feita
+  }).length
 
   function aoAdicionar(event) {
    event.preventDefault()
@@ -58,6 +61,8 @@ function removerIdeia(id) {
   <button onClick={() => removerIdeia(ideia.id)}>X</button>
 </div>
   ))}
+
+  <p>{` ${ideias.length} ideias no painel - ${concluidas} concluidas`}</p>
     </div>
   )
 }
